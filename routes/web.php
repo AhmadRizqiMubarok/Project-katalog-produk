@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -16,10 +15,8 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    $produks = Produk::all();
-    return view('welcome', compact('produks'));
+    return view('welcome');
 });
-
 
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');

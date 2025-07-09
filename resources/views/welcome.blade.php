@@ -54,21 +54,37 @@
 
 <!-- Katalog Produk -->
 <div class="container mt-5">
-  <!-- <h2 class="text-center mb-4">Katalog Produk</h2> -->
+  <h2 class="text-center mb-4">Katalog Produk</h2>
   <div class="row g-4">
-    @foreach($produks as $produk)
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="{{ asset('storage/' . $produk->gambar) }}" class="card-img-top" alt="{{ $produk->nama }}">
-          <div class="card-body text-center">
-            <h5 class="card-title">{{ $produk->nama }}</h5>
-          </div>
+    <!-- Produk 1 -->
+    <div class="col-md-4">
+      <div class="card product-card shadow-sm">
+        <img src="https://via.placeholder.com/400x200?text=Roti+Manis" class="card-img-top" alt="Roti Manis">
+        <div class="card-body text-center">
+          <h5 class="card-title">Roti Manis</h5>
         </div>
       </div>
-    @endforeach
+    </div>
+    <!-- Produk 2 -->
+    <div class="col-md-4">
+      <div class="card product-card shadow-sm">
+        <img src="https://via.placeholder.com/400x200?text=Roti+Tawar" class="card-img-top" alt="Roti Tawar">
+        <div class="card-body text-center">
+          <h5 class="card-title">Roti Tawar</h5>
+        </div>
+      </div>
+    </div>
+    <!-- Produk 3 -->
+    <div class="col-md-4">
+      <div class="card product-card shadow-sm">
+        <img src="https://via.placeholder.com/400x200?text=Roti+Coklat" class="card-img-top" alt="Roti Coklat">
+        <div class="card-body text-center">
+          <h5 class="card-title">Roti Coklat</h5>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-4 mt-5">
