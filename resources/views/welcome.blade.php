@@ -16,31 +16,21 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold fs-3 text-uppercase" href="{{ url('/') }}">
-      Roti Sari
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-4 text-uppercase" href="#">Roti Sari</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarBasic">
+  
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Beranda</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tentang Kami</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Kontak</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="welcome">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
       </ul>
-
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('login') }}">Login</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="logout">Log Out</a></li>
       </ul>
     </div>
   </div>
@@ -52,37 +42,75 @@
   <p class="lead">Nikmati berbagai pilihan roti segar setiap hari!</p>
 </div>
 
-<!-- Katalog Produk -->
-<div class="container mt-5">
+@php
+  // Data produk dan kategori disimpan manual
+  $kategoriList = ['Manis', 'Tawar', 'Coklat'];
+  $produks = [
+    ['nama' => 'Roti Manis', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Manis', 'harga' => 8000, 'kategori' => 'Manis'],
+    ['nama' => 'Roti Tawar', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Tawar', 'harga' => 7000, 'kategori' => 'Tawar'],
+    ['nama' => 'Roti Coklat', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9000, 'kategori' => 'Coklat'],
+    ['nama' => 'Roti Strawberry', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9000, 'kategori' => 'Strawberry'],
+    ['nama' => 'Roti Nanas', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 8500, 'kategori' => 'Nanas'],
+    ['nama' => 'Roti Susu', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 7500, 'kategori' => 'Susu'],
+    ['nama' => 'Roti Durian', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9500, 'kategori' => 'Durian'],
+    ['nama' => 'Roti Blueberry', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 10000, 'kategori' => 'Blueberry'],
+    ['nama' => 'Roti Keju', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9000, 'kategori' => 'Keju'],
+    ['nama' => 'Roti Kacang', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9000, 'kategori' => 'Kacang'],
+    ['nama' => 'Roti Matcha', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 11500, 'kategori' => 'Matcha'],
+    ['nama' => 'Roti Red Velvet', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 15000, 'kategori' => 'Red Velvet'],
+  ];
+  $search = request('search');
+  $filterKategori = request('kategori');
+  $filtered = collect($produks)->filter(function ($p) use ($search, $filterKategori) {
+    $matchSearch = !$search || str_contains(strtolower($p['nama']), strtolower($search));
+    $matchKategori = !$filterKategori || $p['kategori'] === $filterKategori;
+    return $matchSearch && $matchKategori;
+  });
+@endphp
+
+<!-- Search & Filter -->
+<div class="container my-4">
+  <form method="GET">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <input type="text" name="search" class="form-control" placeholder="Cari roti..." value="{{ $search }}">
+      </div>
+      <div class="col-md-4">
+        <select name="kategori" class="form-select">
+          <option value="">Semua Kategori</option>
+          @foreach($kategoriList as $kategori)
+            <option value="{{ $kategori }}" {{ $kategori == $filterKategori ? 'selected' : '' }}>{{ $kategori }}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-primary w-100">Cari</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Produk -->
+<div class="container mt-4">
   <h2 class="text-center mb-4">Katalog Produk</h2>
   <div class="row g-4">
-    <!-- Produk 1 -->
-    <div class="col-md-4">
-      <div class="card product-card shadow-sm">
-        <img src="https://via.placeholder.com/400x200?text=Roti+Manis" class="card-img-top" alt="Roti Manis">
-        <div class="card-body text-center">
-          <h5 class="card-title">Roti Manis</h5>
+    @forelse($filtered as $produk)
+      <div class="col-md-3">
+        <div class="card product-card shadow-sm">
+          <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ $produk['nama'] }}</h5>
+            <p class="text-muted">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
+            <div class="d-grid gap-2">
+              <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20{{ urlencode($produk['nama']) }}" target="_blank" class="btn btn-success btn-sm">Pesan via WhatsApp</a>
+              <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" class="btn btn-outline-primary btn-sm">Pesan via Email</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Produk 2 -->
-    <div class="col-md-4">
-      <div class="card product-card shadow-sm">
-        <img src="https://via.placeholder.com/400x200?text=Roti+Tawar" class="card-img-top" alt="Roti Tawar">
-        <div class="card-body text-center">
-          <h5 class="card-title">Roti Tawar</h5>
-        </div>
-      </div>
-    </div>
-    <!-- Produk 3 -->
-    <div class="col-md-4">
-      <div class="card product-card shadow-sm">
-        <img src="https://via.placeholder.com/400x200?text=Roti+Coklat" class="card-img-top" alt="Roti Coklat">
-        <div class="card-body text-center">
-          <h5 class="card-title">Roti Coklat</h5>
-        </div>
-      </div>
-    </div>
+    @empty
+      <p class="text-center text-muted">Produk tidak ditemukan.</p>
+    @endforelse
   </div>
 </div>
 
