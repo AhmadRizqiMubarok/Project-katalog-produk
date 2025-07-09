@@ -15,8 +15,9 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8B4513;">
+  <div class="container-fluid">
     <a class="navbar-brand fw-bold fs-4 text-uppercase" href="#">Roti Sari</a>
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -35,6 +36,8 @@
     </div>
   </div>
 </nav>
+
+
 
 <!-- Hero -->
 <div class="container text-center mt-5">
@@ -102,8 +105,20 @@
             <h5 class="card-title">{{ $produk['nama'] }}</h5>
             <p class="text-muted">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
             <div class="d-grid gap-2">
-              <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20{{ urlencode($produk['nama']) }}" target="_blank" class="btn btn-success btn-sm">Pesan via WhatsApp</a>
-              <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" class="btn btn-outline-primary btn-sm">Pesan via Email</a>
+            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20{{ urlencode($produk['nama']) }}" 
+                    target="_blank" 
+                    class="btn btn-sm" 
+                    style="background-color: #819067; color: white;">
+                    Pesan via WhatsApp
+            </a>
+
+            <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" 
+                    class="btn btn-sm" 
+                    style="background-color: #3D74B6; color: white;">
+                    Pesan via Email
+            </a>
+
+
             </div>
           </div>
         </div>
