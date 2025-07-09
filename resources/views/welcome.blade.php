@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Menu 2</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Menu 3</a>
+        </li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
