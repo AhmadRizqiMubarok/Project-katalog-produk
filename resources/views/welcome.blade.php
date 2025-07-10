@@ -15,7 +15,7 @@
 </head>
 <body>
 
-
+<div id="#beranda">
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8B4513;">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold fs-4 text-uppercase">Roti Sari</a>
@@ -28,14 +28,15 @@
                 
             </ul>
             <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="welcome">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
                 <li class="nav-item"><a class="nav-link" href="#kontak-footer">Kontak</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
+</div>
 
 
 <div class="container text-center mt-5">
@@ -105,7 +106,7 @@
                     <select name="kategori" class="form-select">
                         <option value="">Semua Kategori</option>
                         @foreach($kategoriList as $kategori)
-                        <option value="{{ $kategori }}" {{ $kategori = $filterKategori ? 'selected' : '' }}>{{ $kategori }}</option>
+                        <option value="{{ $kategori }}" {{ $kategori == $filterKategori ? 'selected' : '' }}>{{ $kategori }}</option>
 
                         @endforeach
                     </select>
@@ -128,7 +129,27 @@
 
     </div>
 
-    <div class="container mt-4">
+    <div id="tentang" class="container py-5">
+  <div class="text-center mb-4">
+    <h1 class="fw-bold display-5" style="color: #8B4513;">Tentang Kami</h1>
+    <hr class="w-25 mx-auto" style="border: 2px solid #d2691e;">
+  </div>
+  
+  <div class="bg-light rounded-4 shadow-lg p-4 mx-auto" style="max-width: 800px;">
+    <p class="fs-5" style="text-align: justify;">
+      <strong>Roti Sari</strong> adalah toko roti lokal yang berkomitmen menghadirkan roti <strong>segar</strong>, <strong>lezat</strong>, dan <strong>berkualitas tinggi</strong> setiap hari. Dibuat dari bahan-bahan pilihan dan tanpa pengawet, setiap gigitan menyuguhkan cita rasa <em>tradisional</em> yang hangat dan menggugah selera.
+    </p>
+    <p class="fs-5" style="text-align: justify;">
+      Sejak awal berdiri, Roti Sari telah menjadi <strong>pilihan utama keluarga</strong> untuk sarapan sehat, camilan nikmat, hingga oleh-oleh khas Bandung. Dengan semangat <strong>UMKM</strong> dan dedikasi pada kualitas, kami terus menghadirkan inovasi dalam bentuk roti manis, roti isi, kue kering, dan <em>pastry</em> yang disukai berbagai kalangan.
+    </p>
+    <p class="fs-5 fst-italic text-center mt-4">
+      "Setiap roti punya cerita — dan di Roti Sari, kami ingin menjadi bagian dari cerita hangat Anda. -since 2k25"
+    </p>
+  </div>
+</div>
+
+
+    <div id="produk" class="container mt-4">
     <h2 class="text-center mb-4 fw-bold" style="
     color: transparent;
     -webkit-text-stroke: 1.5px white;
