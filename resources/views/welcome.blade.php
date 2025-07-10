@@ -70,7 +70,8 @@
     // Data produk dan kategori disimpan manual
     $kategoriList = ['Manis', 'Tawar', 'Coklat'];
     $produks = [
-        ['nama' => 'Roti Manis', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Manis', 'harga' => 8000, 'kategori' => 'Manis'],
+       
+        
         ['nama' => 'Roti Tawar', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Tawar', 'harga' => 7000, 'kategori' => 'Tawar'],
         ['nama' => 'Roti Coklat', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9000, 'kategori' => 'Coklat'],
         ['nama' => 'Roti Strawberry', 'gambar' => 'https://via.placeholder.com/400x200?text=Roti+Coklat', 'harga' => 9000, 'kategori' => 'Strawberry'],
