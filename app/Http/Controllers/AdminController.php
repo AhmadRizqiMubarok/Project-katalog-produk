@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuthController extends Controller
+class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('admin.login'); // sesuaikan dengan view login admin
+        return view('admin.');
     }
 
     public function login(Request $request)
@@ -18,10 +19,12 @@ class AdminAuthController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin'); // atau rute yang kamu tentukan
+            return redirect()->intended('/admin/produk'); // atau dashboard admin
         }
 
-        return back()->with('error', 'Email atau password salah.');
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ]);
     }
 
     public function logout(Request $request)
@@ -30,7 +33,8 @@ class AdminAuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login.form')->with('success', 'Berhasil logout.');
+        return redirect('/admin/login');
     }
 }
+
 

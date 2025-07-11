@@ -45,10 +45,11 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/produk', [ProductController::class, 'all']);
 Route::get('/produk/{id}', [ProductController::class, 'show']);
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('produk', AdminProductController::class);
     Route::resource('kategori', AdminCategoryController::class);
 });
+
 
 
 
