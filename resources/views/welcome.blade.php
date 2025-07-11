@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roti Sari</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .product-card img {
             height: 200px;
@@ -69,7 +71,7 @@
 
 @php
     // Data produk dan kategori disimpan manual
-    $kategoriList = ['Manis', 'Tawar', 'Coklat'];
+    $kategoriList = ['Manis', 'Tawar', 'Coklat', 'Strawberry'];
     $produks = [
        
         
@@ -93,7 +95,7 @@
         ['nama' => 'Roti Telur', 'gambar' => 'https://st2.depositphotos.com/3957801/7261/i/950/depositphotos_72619571-stock-photo-toasted-bread-with-boiled-egg.jpg', 'harga' => 13000, 'kategori' => 'Telur'],
         ['nama' => 'Roti Sosis', 'gambar' => 'https://png.pngtree.com/png-clipart/20240131/original/pngtree-sausage-buns-on-white-white-photo-png-image_14192396.png', 'harga' => 13000, 'kategori' => 'Sosis'],
         ['nama' => 'Roti Kornet', 'gambar' => 'https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2021/10/grilled-cheese-corned-beef-88c3c7ca6eebfed56b5fcff9af48ef8c_600x400.webp', 'harga' => 13000, 'kategori' => 'Kornet'],
-
+        
     ];
     $search = request('search');
     $filterKategori = request('kategori');
@@ -140,7 +142,7 @@
     <div id="tentang" class="container py-5">
   <div class="text-center mb-4">
     <h1 class="fw-bold display-5" style="color: #8B4513;">Tentang Kami</h1>
-    <hr class="w-25 mx-auto" style="border: 2px solid #d2691e;">
+    <hr class="w-25 mx-auto" style="border: 2px solid #8B4513">
   </div>
   
   <div class="bg-light rounded-4 shadow-lg p-4 mx-auto" style="max-width: 800px;">
@@ -151,7 +153,7 @@
       Sejak awal berdiri, Roti Sari telah menjadi <strong>pilihan utama keluarga</strong> untuk sarapan sehat, camilan nikmat, hingga oleh-oleh khas Bandung. Dengan semangat <strong>UMKM</strong> dan dedikasi pada kualitas, kami terus menghadirkan inovasi dalam bentuk roti manis, roti isi, kue kering, dan <em>pastry</em> yang disukai berbagai kalangan.
     </p>
     <p class="fs-5 fst-italic text-center mt-4">
-      "Setiap roti punya cerita — dan di Roti Sari, kami ingin menjadi bagian dari cerita hangat Anda. -since 2k25"
+      "Setiap roti punya cerita — dan di Roti Sari, kami ingin menjadi bagian dari cerita hangat Anda. -since 2k25-"
     </p>
   </div>
 </div>
@@ -184,16 +186,19 @@
                     <p class="text-danger fw-semibold mb-3">Stok: {{ $stokTersedia }}</p>
 
                     <div class="d-grid gap-2">
-                        <a href="https://wa.me/6282113146940?text=Halo,%20saya%20ingin%20memesan,%20apakah%20ada?%20{{ urlencode($produk['nama']) }}" 
-                            target="_blank" 
-                            class="btn btn-sm" 
-                            style="background-color: #819067; color: white;">
-                            Pesan via WhatsApp
+                        <a href="https://wa.me/6282113146940?text=Halo,%20saya%20ingin%20memesan%20{{ urlencode($produk['nama']) }}.%20Apakah%20masih%20tersedia%3F" 
+                        target="_blank" 
+                        class="btn btn-sm" 
+                        style="background-color: #25D366; color: white;">
+                        <i class="fab fa-whatsapp text-success"></i>
+                        Pesan via WhatsApp
                         </a>
+
 
                         <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" 
                             class="btn btn-sm" 
-                            style="background-color: #3D74B6; color: white;">
+                            style="background-color: #007BFF; color: white;">
+                            <i class="fas fa-envelope text-warning me-2"></i>
                             Pesan via Email
                         </a>
                     </div>
@@ -210,12 +215,51 @@
     <div class="container">
         <p class="mb-1">© {{ date('Y') }} Roti Sari. Semua hak dilindungi.</p>
         <hr class="bg-light" style="opacity: 0.1;">
-        <div class="row justify-content-center">
+        
+        <div class="row text-start">
+            <!-- Kolom kiri: Kontak -->
+            <div class="col-md-6 mb-3">
+                <p class="mb-1 fw-bold">Kontak Kami:</p>
+                <p class="mb-0">
+                    <i class="fas fa-envelope text-warning me-2"></i>
+                    Email: 
+                    <a href="mailto:admin@rotisari.com" class="text-white text-decoration-underline">
+                        admin@rotisari.com
+                    </a>
+                </p>
+                <p class="mb-0">
+                    <i class="fab fa-whatsapp text-success me-2"></i>
+                    WhatsApp: 
+                    <a href="https://wa.me/6283110469411" class="text-white text-decoration-underline" target="_blank">
+                        +62 831-1046-9411
+                    </a>
+                </p>
+                <p class="mb-2">
+                    <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                    Alamat: Jl. Roti Manis No. 12, Bandung
+                </p>
+            </div>
+
+            <!-- Kolom kanan: Maps -->
             <div class="col-md-6">
-                <p class="mb-1">Kontak Kami:</p>
-                <p class="mb-0">Email: <a href="mailto:admin@rotisari.com" class="text-white text-decoration-underline">admin@rotisari.com</a></p>
-                <p class="mb-0">WhatsApp: <a href="https://wa.me/6283110469411" class="text-white text-decoration-underline" target="_blank">+62 831-1046-9411</a></p>
-                <p class="mb-0">Alamat: Jl. Roti Manis No. 12, Bandung</p>
+                <div style="width: 100%; height: 200px; border-radius: 8px; overflow: hidden;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d253597.80987383527!2d108.45481099999999!3d-6.7128715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1752295514028!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+            
+
             </div>
         </div> 
     </div>
