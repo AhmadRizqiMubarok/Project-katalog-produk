@@ -217,7 +217,7 @@
                 <p class="mb-0">WhatsApp: <a href="https://wa.me/6283110469411" class="text-white text-decoration-underline" target="_blank">+62 831-1046-9411</a></p>
                 <p class="mb-0">Alamat: Jl. Roti Manis No. 12, Bandung</p>
             </div>
-        </div>
+        </div> 
     </div>
 </footer>
 

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 
 
 
@@ -40,6 +41,15 @@ Route::post('/beli', function (Request $request) {
 
     return redirect()->back()->with('error', 'Stok habis untuk produk: ' . $produkNama);
 })->name('beli.produk');
+Route::get('/', [ProductController::class, 'index']);
+Route::get('/produk', [ProductController::class, 'all']);
+Route::get('/produk/{id}', [ProductController::class, 'show']);
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::resource('produk', AdminProductController::class);
+    Route::resource('kategori', AdminCategoryController::class);
+});
+
 
 
 
