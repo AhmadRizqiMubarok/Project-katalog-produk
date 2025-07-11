@@ -139,46 +139,34 @@
     Katalog Produk
     </h2>
 
-    <div class="row g-4">
-    @php
-    // Simulasi penyimpanan stok dalam session jika belum ada
-    session()->put('stok', session('stok', collect($produks)->pluck('stok', 'nama')->toArray()));
-@endphp
+        <div class="row g-4">
+            @forelse($filtered as $produk)
+                <div class="col-md-3">
+                    <div class="card product-card shadow-sm">
+                        <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $produk['nama'] }}</h5>
+                            <p class="text-muted">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
+                            <div class="d-grid gap-2">
+                                <a href="https://wa.me/6283110469411?text=Halo,%20saya%20ingin%20memesan,%20apakah%ada?{{ urlencode($produk['nama']) }}" 
+                                    target="_blank" 
+                                    class="btn btn-sm" 
+                                    style="background-color: #819067; color: white;">
+                                    Pesan via WhatsApp
+                                </a>   
 
-@forelse($filtered as $produk)
-    @php
-        $stokTersedia = session('stok')[$produk['nama']] ?? $produk['stok'] ?? 10; // default stok 10 jika belum diset
-    @endphp
-    
-    <div class="col-md-3">
-        <div class="card product-card shadow-sm">
-            <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
-            <div class="card-body text-center">
-                <h5 class="card-title">{{ $produk['nama'] }}</h5>
-                <p class="text-muted mb-1">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
-                <div class="d-grid-gab-2">
-                <p class="text-danger fw-semibold">Stok: {{ $stokTersedia }}</p>
-
-                <div class="d-grid gap-2">
-                    @if($stokTersedia > 0)
-                        <form method="POST" action="{{ route('beli.produk') }}">
-                            @csrf
-                            <input type="hidden" name="nama" value="{{ $produk['nama'] }}">
-                            <button type="submit" class="btn btn-success btn-sm">Beli Sekarang</button>
-                        </form>
-                    @else
-                        <button class="btn btn-secondary btn-sm" disabled>Stok Habis</button>
-                    @endif
+                                <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" 
+                                    class="btn btn-sm" 
+                                    style="background-color: #3D74B6; color: white;">
+                                    Pesan via Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-@empty
-    <p class="text-center text-muted">Produk tidak ditemukan.</p>
-@endforelse
-
+            @empty
+                <p class="text-center text-muted">Produk tidak ditemukan.</p>
+            @endforelse
         </div>
     </div>
 
