@@ -18,23 +18,25 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8B4513;">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold fs-4 text-uppercase">Roti Sari</a>
+        <a class="navbar-brand fw-bold fs-4 text-uppercase d-flex align-items-center" href="#">
+            <img src="{{ asset('images/logo.png') }}"  width="70" height="65" class="me-2">
+            
+        </a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                
-            </ul>
+            <ul class="navbar-nav me-auto"></ul>
             <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="welcome">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="welcome">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 
 
@@ -105,8 +107,7 @@
                     <select name="kategori" class="form-select">
                         <option value="">Semua Kategori</option>
                         @foreach($kategoriList as $kategori)
-                        <option value="{{ $kategori }}" {{ $kategori = $filterKategori ? 'selected' : '' }}>{{ $kategori }}</option>
-
+                        <option value="{{ $kategori }}" {{ $filterKategori == $kategori ? 'selected' : '' }}>{{ $kategori }}</option> 
                         @endforeach
                     </select>
                 </div>
@@ -138,38 +139,50 @@
     Katalog Produk
     </h2>
 
-        <div class="row g-4">
-            @forelse($filtered as $produk)
-                <div class="col-md-3">
-                    <div class="card product-card shadow-sm">
-                        <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $produk['nama'] }}</h5>
-                            <p class="text-muted">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
-                            <div class="d-grid gap-2">
-                                <a href="https://wa.me/6283110469411?text=Halo,%20saya%20ingin%20memesan,%20apakah%ada?{{ urlencode($produk['nama']) }}" 
-                                    target="_blank" 
-                                    class="btn btn-sm" 
-                                    style="background-color: #819067; color: white;">
-                                    Pesan via WhatsApp
-                                </a>
+    <div class="row g-4">
+    @php
+    // Simulasi penyimpanan stok dalam session jika belum ada
+    session()->put('stok', session('stok', collect($produks)->pluck('stok', 'nama')->toArray()));
+@endphp
 
-                                <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" 
-                                    class="btn btn-sm" 
-                                    style="background-color: #3D74B6; color: white;">
-                                    Pesan via Email
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+@forelse($filtered as $produk)
+    @php
+        $stokTersedia = session('stok')[$produk['nama']] ?? $produk['stok'] ?? 10; // default stok 10 jika belum diset
+    @endphp
+    
+    <div class="col-md-3">
+        <div class="card product-card shadow-sm">
+            <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ $produk['nama'] }}</h5>
+                <p class="text-muted mb-1">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
+                <div class="d-grid-gab-2">
+                <p class="text-danger fw-semibold">Stok: {{ $stokTersedia }}</p>
+
+                <div class="d-grid gap-2">
+                    @if($stokTersedia > 0)
+                        <form method="POST" action="{{ route('beli.produk') }}">
+                            @csrf
+                            <input type="hidden" name="nama" value="{{ $produk['nama'] }}">
+                            <button type="submit" class="btn btn-success btn-sm">Beli Sekarang</button>
+                        </form>
+                    @else
+                        <button class="btn btn-secondary btn-sm" disabled>Stok Habis</button>
+                    @endif
                 </div>
-            @empty
-                <p class="text-center text-muted">Produk tidak ditemukan.</p>
-            @endforelse
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+@empty
+    <p class="text-center text-muted">Produk tidak ditemukan.</p>
+@endforelse
+
         </div>
     </div>
 
-    <footer class="text-white text-center py-4 mt-5" style="background-color: #212529; width: 100vw; margin: 0; padding: 0; box-sizing: border-box;">
+    <footer class="text-white text-center  py-4 mt-5" style="background-color: #212529; width: 100vw; margin: 0; padding: 0; box-sizing: border-box;">
         <p class="mb-1" style="padding: 0 20px;">© {{ date('Y') }} Roti Sari. Semua hak dilindungi.</p>
         <hr class="bg-light" style="opacity: 0.1; margin: 1rem 20px;"> <div class="row justify-content-center" style="margin-left: 0; margin-right: 0;">
             <div class="col-md-4" style="padding-left: 20px; padding-right: 20px;">
