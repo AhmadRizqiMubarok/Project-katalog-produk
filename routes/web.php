@@ -23,7 +23,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/welcome', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 
 Route::post('/beli', function (Request $request) {
