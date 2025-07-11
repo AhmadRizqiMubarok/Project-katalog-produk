@@ -175,7 +175,7 @@
                     <p class="text-danger fw-semibold mb-3">Stok: {{ $stokTersedia }}</p>
 
                     <div class="d-grid gap-2">
-                        <a href="https://wa.me/6282113146940?text=Halo,%20saya%20ingin%20memesan%20{{ urlencode($produk['nama']) }}.%20Apakah%20masih%20tersedia%3F" 
+                        <a href="https://wa.me/6283110469411?text=Halo,%20saya%20ingin%20memesan%20{{ urlencode($produk['nama']) }}.%20Apakah%20masih%20tersedia%3F" 
                         target="_blank" 
                         class="btn btn-sm" 
                         style="background-color: #25D366; color: white;">

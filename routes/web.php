@@ -8,8 +8,8 @@ use App\Http\Controllers\ProductController;
 
 
 
-Route::get('/product', function () {
-    return view('product');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 
@@ -21,8 +21,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/dashboard', function () {
+    return view('admin');
 });
 
 
@@ -41,7 +41,7 @@ Route::post('/beli', function (Request $request) {
 
     return redirect()->back()->with('error', 'Stok habis untuk produk: ' . $produkNama);
 })->name('beli.produk');
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/admin', [ProductController::class, 'index']);
 Route::get('/produk', [ProductController::class, 'all']);
 Route::get('/produk/{id}', [ProductController::class, 'show']);
 
@@ -55,6 +55,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('kategori', AdminCategoryController::class);
 });
 
+    Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('produk',ProductController::class);
+});
 
 
 

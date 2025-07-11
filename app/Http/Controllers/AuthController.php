@@ -25,9 +25,9 @@ class AuthController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->password), // ✅ harus seperti ini
         ]);
-
+        
         return redirect()->route('login')->with('success', 'Register berhasil! Silakan login.');
     }
 
@@ -47,10 +47,11 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/welcome');
+            return redirect()->intended('/admin/dashboard');
         }
+        
 
         return back()->withErrors([
             'email' => 'Email atau password salah.',
@@ -63,7 +64,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Anda berhasil logout.');
     }
 }
 
