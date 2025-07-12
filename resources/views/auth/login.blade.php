@@ -17,9 +17,9 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         .image-side {
-            background: url('https://source.unsplash.com/500x700/?technology,admin') no-repeat center center;
-            background-size: cover;
-            min-height: 100%;
+          background: url('{{ asset('roti1.jpg') }}') no-repeat center center;
+          background-size: cover;
+          min-height: 100%;
         }
         .form-side {
             background-color: white;
