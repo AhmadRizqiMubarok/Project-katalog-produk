@@ -95,7 +95,7 @@
         ['nama' => 'Roti Telur', 'gambar' => 'https://st2.depositphotos.com/3957801/7261/i/950/depositphotos_72619571-stock-photo-toasted-bread-with-boiled-egg.jpg', 'harga' => 13000, 'kategori' => 'Telur'],
         ['nama' => 'Roti Sosis', 'gambar' => 'https://png.pngtree.com/png-clipart/20240131/original/pngtree-sausage-buns-on-white-white-photo-png-image_14192396.png', 'harga' => 13000, 'kategori' => 'Sosis'],
         ['nama' => 'Roti Kornet', 'gambar' => 'https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2021/10/grilled-cheese-corned-beef-88c3c7ca6eebfed56b5fcff9af48ef8c_600x400.webp', 'harga' => 13000, 'kategori' => 'Kornet'],
-
+        
     ];
     $search = request('search');
     $filterKategori = request('kategori');
