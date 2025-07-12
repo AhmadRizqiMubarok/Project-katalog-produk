@@ -260,6 +260,13 @@
                   <td>10</td>
                   <td><span class="badge bg-warning">Menipis</span></td>
                 </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Matcha Latte</td>
+                  <td>Minuman</td>
+                  <td>50</td>
+                  <td><span class="badge bg-success">Aktif</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
