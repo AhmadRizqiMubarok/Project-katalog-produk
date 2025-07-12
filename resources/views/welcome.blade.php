@@ -15,29 +15,28 @@
 </head>
 <body>
 
-
+<div id="#beranda">
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8B4513;">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold fs-4 text-uppercase d-flex align-items-center" href="#">
-            <img src="{{ asset('images/logo.png') }}"  width="70" height="65" class="me-2">
-            
-        </a>
+        <img src="images/logo.png" alt="Logo" widht="50px" height="60px">
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto"></ul>
+            <ul class="navbar-nav me-auto">
+                
+            </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="welcome">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontak-footer">Kontak</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
-
+</div>
 
 
 <div class="container text-center mt-5">
@@ -86,6 +85,14 @@
         ['nama' => 'Roti Pisang', 'gambar' => 'data:image/jpeg;base64,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', 'harga' => 9000, 'kategori' => 'Pisang'],
         ['nama' => 'Roti Matcha', 'gambar' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjamCHLxJTcDFejceTOsT-32Sw9abY6s3qlw&s', 'harga' => 11500, 'kategori' => 'Matcha'],
         ['nama' => 'Roti Red Velvet', 'gambar' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYGPX9Fmlgd_w_RR4lZ6j3Di5GyH7Gr6adQ&s', 'harga' => 15000, 'kategori' => 'Red Velvet'],
+        ['nama' => 'Roti Daging Sapi', 'gambar' => 'https://png.pngtree.com/png-vector/20250612/ourmid/pngtree-pan-fried-meat-buns-with-savory-juicy-filling-png-image_16522636.png', 'harga' => 13000, 'kategori' => 'Sapi'],
+        ['nama' => 'Roti Daging Tuna', 'gambar' => 'https://png.pngtree.com/png-clipart/20250308/original/pngtree-fresh-tuna-sandwich-with-lettuce-and-whole-wheat-bread-png-image_20601837.png', 'harga' => 13000, 'kategori' => 'Tuna'],
+        ['nama' => 'Roti Daging Ayam', 'gambar' => 'https://png.pngtree.com/png-clipart/20250515/original/pngtree-a-delicious-sandwich-with-layers-of-shredded-chicken-creamy-mayo-and-png-image_20985248.png', 'harga' => 13000, 'kategori' => 'Ayam'],
+        ['nama' => 'Roti Custard Vanilla', 'gambar' => 'https://png.pngtree.com/png-clipart/20250201/original/pngtree-soft-and-fluffy-custard-filled-bun-with-a-golden-brown-crust-png-image_20128346.png', 'harga' => 13000, 'kategori' => 'Vanilla'],
+        ['nama' => 'Roti Ubi Ungu', 'gambar' => 'https://media.istockphoto.com/id/922782918/id/foto/irisan-roti-ubi-jalar-ungu-terisolasi-di-latar-belakang-putih.jpg?s=170667a&w=0&k=20&c=0fX6MBQ4NNTZe1fVYGf5AGS-Eu8GqTCQnZyHGb2NpxY=', 'harga' => 13000, 'kategori' => 'Ubi'],
+        ['nama' => 'Roti Telur', 'gambar' => 'https://st2.depositphotos.com/3957801/7261/i/950/depositphotos_72619571-stock-photo-toasted-bread-with-boiled-egg.jpg', 'harga' => 13000, 'kategori' => 'Telur'],
+        ['nama' => 'Roti Sosis', 'gambar' => 'https://png.pngtree.com/png-clipart/20240131/original/pngtree-sausage-buns-on-white-white-photo-png-image_14192396.png', 'harga' => 13000, 'kategori' => 'Sosis'],
+        ['nama' => 'Roti Kornet', 'gambar' => 'https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2021/10/grilled-cheese-corned-beef-88c3c7ca6eebfed56b5fcff9af48ef8c_600x400.webp', 'harga' => 13000, 'kategori' => 'Kornet'],
 
     ];
     $search = request('search');
@@ -107,7 +114,8 @@
                     <select name="kategori" class="form-select">
                         <option value="">Semua Kategori</option>
                         @foreach($kategoriList as $kategori)
-                        <option value="{{ $kategori }}" {{ $filterKategori == $kategori ? 'selected' : '' }}>{{ $kategori }}</option> 
+                        <option value="{{ $kategori }}" {{ $kategori == $filterKategori ? 'selected' : '' }}>{{ $kategori }}</option>
+
                         @endforeach
                     </select>
                 </div>
@@ -129,7 +137,27 @@
 
     </div>
 
-    <div class="container mt-4">
+    <div id="tentang" class="container py-5">
+  <div class="text-center mb-4">
+    <h1 class="fw-bold display-5" style="color: #8B4513;">Tentang Kami</h1>
+    <hr class="w-25 mx-auto" style="border: 2px solid #d2691e;">
+  </div>
+  
+  <div class="bg-light rounded-4 shadow-lg p-4 mx-auto" style="max-width: 800px;">
+    <p class="fs-5" style="text-align: justify;">
+      <strong>Roti Sari</strong> adalah toko roti lokal yang berkomitmen menghadirkan roti <strong>segar</strong>, <strong>lezat</strong>, dan <strong>berkualitas tinggi</strong> setiap hari. Dibuat dari bahan-bahan pilihan dan tanpa pengawet, setiap gigitan menyuguhkan cita rasa <em>tradisional</em> yang hangat dan menggugah selera.
+    </p>
+    <p class="fs-5" style="text-align: justify;">
+      Sejak awal berdiri, Roti Sari telah menjadi <strong>pilihan utama keluarga</strong> untuk sarapan sehat, camilan nikmat, hingga oleh-oleh khas Bandung. Dengan semangat <strong>UMKM</strong> dan dedikasi pada kualitas, kami terus menghadirkan inovasi dalam bentuk roti manis, roti isi, kue kering, dan <em>pastry</em> yang disukai berbagai kalangan.
+    </p>
+    <p class="fs-5 fst-italic text-center mt-4">
+      "Setiap roti punya cerita — dan di Roti Sari, kami ingin menjadi bagian dari cerita hangat Anda. -since 2k25"
+    </p>
+  </div>
+</div>
+
+
+    <div id="produk" class="container mt-4">
     <h2 class="text-center mb-4 fw-bold" style="
     color: transparent;
     -webkit-text-stroke: 1.5px white;
@@ -139,48 +167,59 @@
     Katalog Produk
     </h2>
 
-        <div class="row g-4">
-            @forelse($filtered as $produk)
-                <div class="col-md-3">
-                    <div class="card product-card shadow-sm">
-                        <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $produk['nama'] }}</h5>
-                            <p class="text-muted">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
-                            <div class="d-grid gap-2">
-                                <a href="https://wa.me/6283110469411?text=Halo,%20saya%20ingin%20memesan,%20apakah%ada?{{ urlencode($produk['nama']) }}" 
-                                    target="_blank" 
-                                    class="btn btn-sm" 
-                                    style="background-color: #819067; color: white;">
-                                    Pesan via WhatsApp
-                                </a>   
+       <div class="row g-4">
+    @forelse($filtered as $produk)
+        @php
+            $stokTersedia = session('stok')[$produk['nama']] ?? $produk['stok'] ?? 10;
+        @endphp
 
-                                <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" 
-                                    class="btn btn-sm" 
-                                    style="background-color: #3D74B6; color: white;">
-                                    Pesan via Email
-                                </a>
-                            </div>
-                        </div>
+        <div class="col-md-3">
+            <div class="card product-card shadow-sm">
+                <img src="{{ $produk['gambar'] }}" class="card-img-top" alt="{{ $produk['nama'] }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ $produk['nama'] }}</h5>
+                    <p class="text-muted mb-1">Rp{{ number_format($produk['harga'], 0, ',', '.') }}</p>
+
+                    {{-- Tambahan stok di bawah harga --}}
+                    <p class="text-danger fw-semibold mb-3">Stok: {{ $stokTersedia }}</p>
+
+                    <div class="d-grid gap-2">
+                        <a href="https://wa.me/6282113146940?text=Halo,%20saya%20ingin%20memesan,%20apakah%20ada?%20{{ urlencode($produk['nama']) }}" 
+                            target="_blank" 
+                            class="btn btn-sm" 
+                            style="background-color: #819067; color: white;">
+                            Pesan via WhatsApp
+                        </a>
+
+                        <a href="mailto:admin@rotisari.com?subject=Pesan%20{{ urlencode($produk['nama']) }}" 
+                            class="btn btn-sm" 
+                            style="background-color: #3D74B6; color: white;">
+                            Pesan via Email
+                        </a>
                     </div>
                 </div>
-            @empty
-                <p class="text-center text-muted">Produk tidak ditemukan.</p>
-            @endforelse
+            </div>
         </div>
-    </div>
+    @empty
+        <p class="text-center text-muted">Produk tidak ditemukan.</p>
+    @endforelse
+</div>
 
-    <footer class="text-white text-center  py-4 mt-5" style="background-color: #212529; width: 100vw; margin: 0; padding: 0; box-sizing: border-box;">
-        <p class="mb-1" style="padding: 0 20px;">© {{ date('Y') }} Roti Sari. Semua hak dilindungi.</p>
-        <hr class="bg-light" style="opacity: 0.1; margin: 1rem 20px;"> <div class="row justify-content-center" style="margin-left: 0; margin-right: 0;">
-            <div class="col-md-4" style="padding-left: 20px; padding-right: 20px;">
+
+<footer id="kontak-footer" class="text-white text-center py-4 mt-5" style="background-color: #212529; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0; box-sizing: border-box;">
+    <div class="container">
+        <p class="mb-1">© {{ date('Y') }} Roti Sari. Semua hak dilindungi.</p>
+        <hr class="bg-light" style="opacity: 0.1;">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
                 <p class="mb-1">Kontak Kami:</p>
                 <p class="mb-0">Email: <a href="mailto:admin@rotisari.com" class="text-white text-decoration-underline">admin@rotisari.com</a></p>
                 <p class="mb-0">WhatsApp: <a href="https://wa.me/6283110469411" class="text-white text-decoration-underline" target="_blank">+62 831-1046-9411</a></p>
                 <p class="mb-0">Alamat: Jl. Roti Manis No. 12, Bandung</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
