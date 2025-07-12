@@ -8,8 +8,8 @@ use App\Http\Controllers\ProductController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/product', function () {
+    return view('product');
 });
 
 
@@ -46,9 +46,15 @@ Route::get('/produk', [ProductController::class, 'all']);
 Route::get('/produk/{id}', [ProductController::class, 'show']);
 
 Route::prefix('admin')->middleware('auth')->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin');
+    });
+
     Route::resource('produk', AdminProductController::class);
     Route::resource('kategori', AdminCategoryController::class);
 });
+
 
 
 
