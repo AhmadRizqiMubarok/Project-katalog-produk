@@ -201,13 +201,21 @@
 
 
 <div class="d-flex justify-content-center my-5">
-    <button onclick="tampilkanProdukLain(this)"
-        class="btn btn-light border px-4 py-4 shadow-lg rounded-4 fw-semibold d-flex flex-column align-items-center justify-content-center gap-2"
-        style="width: 240px; transition: all 0.3s ease;">
-        <i class="bi bi-chevron-double-down fs-3 text-primary"></i>
+    <button onclick="window.location.href='{{ url('/product') }}'"
+        class="btn btn-light border px-4 py-4 shadow-lg rounded-4 fw-bold d-flex flex-column align-items-center justify-content-center gap-2"
+        style="width: 220px; transition: all 0.3s ease;">
+        <i class="bi bi-basket-fill fs-1 text-primary icon-hover"></i>
         <span class="text-dark">Lihat Semua Produk Roti...</span>
     </button>
 </div>
+
+<style>
+.icon-hover:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+</style>
+
 
 
 
