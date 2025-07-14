@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('admin.');
+        return view('dashboard');
     }
 
     public function login(Request $request)
@@ -19,7 +19,7 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin/produk'); // atau dashboard admin
+            return redirect()->intended('/admin\dashboard'); // atau dashboard admin
         }
 
         return back()->withErrors([
@@ -33,7 +33,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/admin/login');
+        return redirect('/login');
     }
 }
 
