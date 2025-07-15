@@ -16,11 +16,9 @@ return new class extends Migration
         $table->string('nama');
         $table->integer('harga');
         $table->integer('stok');
-        $table->string('kategori')->nullable();
-        $table->string('gambar')->nullable();
+        $table->string('foto')->nullable();
         $table->timestamps();
     });
-    
 }
 
     /**
