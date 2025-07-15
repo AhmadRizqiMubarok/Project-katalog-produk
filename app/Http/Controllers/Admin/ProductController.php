@@ -13,4 +13,10 @@ class ProductController extends Controller
         $produks = Product::all(); // Ambil semua produk dari tabel 'products'
         return view('admin.produk', compact('produks')); // Kirim ke view
     }
+
+    public function create()
+    {
+        return view('admin.produk.create');
+    }
+
 }
