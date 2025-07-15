@@ -201,7 +201,7 @@
 
 
 <div class="d-flex justify-content-center my-5">
-    <button onclick="window.location.href='{{ url('/product') }}'"
+    <button onclick="window.location.href='{{ url('/produk') }}'"
         class="btn btn-light border px-4 py-4 shadow-lg rounded-4 fw-bold d-flex flex-column align-items-center justify-content-center gap-2"
         style="width: 220px; transition: all 0.3s ease;">
         <i class="bi bi-basket-fill fs-1 text-primary icon-hover"></i>
@@ -215,11 +215,6 @@
     transition: transform 0.3s ease;
 }
 </style>
-
-
-
-
-
 
 
 <footer id="kontak-footer" class="text-white text-center py-4 mt-5" style="background-color: #212529; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0; box-sizing: border-box;">
@@ -268,14 +263,6 @@
         </div>
     </div>
 </footer>
-
-            
-
-            </div>
-        </div> 
-    </div>
-</footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>

@@ -15,6 +15,10 @@ class ProductController extends Controller
         return view('admin.produk', compact('products'));
     }
 
+    public function all()
+    {
+        return view('product'); // pastikan ada file resources/views/product.blade.php
+    }
     public function create()
     {
         $categories = Category::all();
