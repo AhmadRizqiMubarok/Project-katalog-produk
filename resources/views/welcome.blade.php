@@ -219,9 +219,6 @@
 
 <footer id="kontak-footer" class="text-white text-center py-4 mt-5" style="background-color: #212529; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0; box-sizing: border-box;">
     <div class="container">
-        <p class="mb-1">© {{ date('Y') }} Roti Sari. Semua hak dilindungi.</p>
-        <hr class="bg-light" style="opacity: 0.1;">
-        
         <div class="row text-start">
             <!-- Kolom kiri: Kontak -->
             <div class="col-md-6 mb-3">
@@ -262,6 +259,8 @@
             </div>
         </div>
     </div>
+    <hr class="bg-light" style="opacity: 0.1;">
+    <p class="mb-1">© {{ date('Y') }} Roti Sari. Semua hak dilindungi.</p>
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
