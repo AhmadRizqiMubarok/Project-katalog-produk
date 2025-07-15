@@ -153,7 +153,7 @@
       <div class="p-3 fw-bold text-center border-bottom">AdminLTE</div>
       <ul class="nav flex-column mt-3">
         <li><a href="#" class="nav-link active"><i class="fas fa-tachometer-alt"></i> <span class="nav-text">Dashboard</span></a></li>
-        <li><a href="#" class="nav-link"><i class="fas fa-box"></i> <span class="nav-text">Produk</span></a></li>
+        <li><a href="produk" class="nav-link"><i class="fas fa-box"></i> <span class="nav-text">Produk</span></a></li>
         <li><a href="#" class="nav-link"><i class="fas fa-users"></i> <span class="nav-text">Pengguna</span></a></li>
         <li><a href="#" class="nav-link"><i class="fas fa-cogs"></i> <span class="nav-text">Pengaturan</span></a></li>
         <li class="mt-auto"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> <span class="nav-text">Keluar</span></a></li>
@@ -173,7 +173,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end bg-light">
               <li><a class="dropdown-item" href="#">Profil</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li>
+  <form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit" class="dropdown-item">Logout</button>
+  </form>
+</li>
+
             </ul>
           </li>
         </ul>
