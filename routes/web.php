@@ -42,7 +42,9 @@ Route::post('/beli', function (Request $request) {
     return redirect()->back()->with('error', 'Stok habis untuk produk: ' . $produkNama);
 })->name('beli.produk');
 Route::get('/admin', [ProductController::class, 'index']);
-Route::get('/produk', [ProductController::class, 'all']);
+Route::get('/produk', function () {
+    return view('product');
+})->name('produk.semua');
 Route::get('/produk/{id}', [ProductController::class, 'show']);
 
 Route::prefix('admin')->middleware('auth')->group(function () {

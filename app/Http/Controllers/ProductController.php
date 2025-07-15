@@ -15,6 +15,10 @@ class ProductController extends Controller
         //
     }
 
+    public function all()
+    {
+        return view('product'); // pastikan ada file resources/views/product.blade.php
+    }
     /**
      * Show the form for creating a new resource.
      */
