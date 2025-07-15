@@ -47,7 +47,7 @@ Route::get('/produk', function () {
 })->name('produk.semua');
 Route::get('/produk/{id}', [ProductController::class, 'show']);
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', function () {
         return view('admin');

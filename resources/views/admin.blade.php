@@ -262,7 +262,7 @@
                 <tr>
                   <td>3</td>
                   <td>Coklat Bubuk</td>
-                  <td>Makanan</td>
+                  <td>Makanan</td> 
                   <td>10</td>
                   <td><span class="badge bg-warning">Menipis</span></td>
                 </tr>
