@@ -28,6 +28,7 @@
             <thead class="table-dark">
                 <tr>
                     <th>No</th>
+                    <th>Foto</th>
                     <th>Nama Produk</th>
                     <th>Harga</th>
                     <th>Stok</th>
@@ -35,23 +36,34 @@
                 </tr>
             </thead>
             <tbody>
-@forelse ($produks as $produk)
-    <tr>
-        <td>{{ $loop->iteration }}</td>
-        <td>{{ $produk->nama }}</td>
-        <td>Rp{{ number_format($produk->harga, 0, ',', '.') }}</td>
-        <td>{{ $produk->stok }}</td>
-        <td>
-            <a href="{{ route('admin.produk.edit', $produk->id) }}" class="btn btn-sm btn-warning">Edit</a>
-        </td>
-    </tr>
-@empty
-    <tr>
-        <td colspan="5" class="text-center">Belum ada produk.</td>
-    </tr>
-@endforelse
-</tbody>
-
+            @forelse ($produks as $produk)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>
+                        @if($produk->foto)
+                            <img src="{{ asset('storage/' . $produk->foto) }}" alt="Foto Produk" width="60" height="60" class="rounded">
+                        @else
+                            <span class="text-muted">Tidak ada</span>
+                        @endif
+                    </td>
+                    <td>{{ $produk->nama }}</td>
+                    <td>Rp{{ number_format($produk->harga, 0, ',', '.') }}</td>
+                    <td>{{ $produk->stok }}</td>
+                    <td>
+                        <a href="{{ route('admin.produk.edit', $produk->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('admin.produk.destroy', $produk->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center">Belum ada produk.</td>
+                </tr>
+            @endforelse
+            </tbody>
         </table>
     </div>
 </div>

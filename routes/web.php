@@ -53,11 +53,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/produk', [AdminProductController::class, 'index'])->name('produk.index');
     Route::get('/produk/create', [AdminProductController::class, 'create'])->name('produk.create');
     Route::post('/produk', [AdminProductController::class, 'store'])->name('produk.store');
-    Route::get('/produk/{id}/edit', [AdminProductController::class, 'edit'])->name('produk.edit');
-    Route::put('/produk/{id}', [AdminProductController::class, 'update'])->name('produk.update');
-    Route::delete('/produk/{id}', [AdminProductController::class, 'destroy'])->name('produk.destroy');
-
-    // Jika Anda punya controller kategori admin
-    Route::resource('kategori', AdminCategoryController::class);
+    
 });
     
