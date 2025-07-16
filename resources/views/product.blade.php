@@ -135,19 +135,21 @@
     }
 
     .btn {
-      display: block;
-      padding: 8px 12px;
-      margin-top: 6px;
-      border: none;
-      border-radius: 4px;
-      width: 100%;
-      box-sizing: border-box;
-      cursor: default !important;
-      text-decoration: none;
-      font-size: 14px;
-      text-align: center;
-      pointer-events: none;
-    }
+  display: block;
+  padding: 8px 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer; /* aktifkan klik */
+  pointer-events: auto; /* aktifkan klik */
+  transition: all 0.3s ease;
+}
+
 
     .btn-wa {
       background-color: #25D366;
@@ -160,10 +162,13 @@
     }
 
     .btn:hover {
-      opacity: 1 !important;
-      background-color: inherit !important;
-      color: inherit !important;
-    }
+  background-color: unset;
+  color: unset;
+  opacity: 1;
+  filter: none;
+  transform: none;
+  box-shadow: none;
+}
 
     .btn i {
       margin-right: 6px;
