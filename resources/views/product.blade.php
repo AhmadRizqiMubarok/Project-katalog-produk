@@ -14,19 +14,67 @@
       background-color: #f8f9fa;
     }
 
-    h1 {
-      text-align: center;
-      padding: 30px 20px;
-      margin: 0;
-      background-color: #8B4513;
-      color: #fff;
-      font-size: 32px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      border-bottom: 4px solid #f3d19c;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+    .navbar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(145deg, #8B4513, #d2691e, #a0522d);
+  padding: 30px 20px;
+  border-bottom: 5px solid #f9d8a4;
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-title h1 {
+  margin: 0;
+  color: #fff8f0;
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header-bar {
+  position: relative;
+  background: linear-gradient(145deg, #8B4513, #d2691e, #a0522d);
+  padding: 40px 20px;
+  border-bottom: 5px solid #f9d8a4;
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.header-bar h1 {
+  margin: 0;
+  color: #fff8f0;
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+.logo-fixed {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 
     .container {
       display: flex;
@@ -50,29 +98,36 @@
     }
 
     .card img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 24px; /* Tambah jarak ke teks */
-}
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 24px;
+    }
 
-.card h3 {
-  margin-top: 12px;
-  margin-bottom: 8px;
-  font-size: 16px;
-}
+    .card h3 {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.card p {
-  margin-top: 6px;
-  margin-bottom: 6px;
-  font-size: 14px;
-}
+    .card p {
+      margin-top: 6px;
+      margin-bottom: 6px;
+      font-size: 14px;
+      min-height: 20px;
+    }
 
-.stok {
-  margin-top: 6px;
-  margin-bottom: 12px;
-  color: red;
-  font-weight: bold;
-}
+    .stok {
+      margin-top: 6px;
+      margin-bottom: 12px;
+      color: red;
+      font-weight: bold;
+      min-height: 20px;
+    }
 
     .button-group {
       margin-top: auto;
@@ -87,10 +142,11 @@
       border-radius: 4px;
       width: 100%;
       box-sizing: border-box;
-      cursor: pointer;
+      cursor: default !important;
       text-decoration: none;
       font-size: 14px;
       text-align: center;
+      pointer-events: none;
     }
 
     .btn-wa {
@@ -104,7 +160,9 @@
     }
 
     .btn:hover {
-      opacity: 0.9;
+      opacity: 1 !important;
+      background-color: inherit !important;
+      color: inherit !important;
     }
 
     .btn i {
@@ -120,16 +178,25 @@
     }
 
     .back-btn button {
-      padding: 10px 20px;
-      background-color: blue;
-      color: white;
-      border: none;
-      border-radius: 5px;
+      padding: 10px 24px;
+      background-color: transparent;
+      color: #8B4513;
+      border: 2px solid #8B4513;
+      border-radius: 50px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-btn button:hover {
+      background-color: #8B4513;
+      color: #fff;
+      transform: translateY(-2px);
     }
 
     .footer {
@@ -184,10 +251,6 @@
       opacity: 0.9;
     }
 
-    .bi {
-      fill: currentColor !important;
-    }
-
     .thank-you {
       font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
       font-size: 18px;
@@ -202,6 +265,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       text-align: center;
       line-height: 1.6;
+      position: relative;
     }
 
     .thank-you strong {
@@ -213,39 +277,57 @@
       color: #6c757d;
       font-size: 15px;
       margin-top: 6px;
+      display: none;
     }
 
+    #typing-text::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 2px;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
-
-  <h1>Katalog Produk</h1>
-
+  
+  <div class="header-bar">
+    <img src="{{ asset('images/logo.png') }}" alt="Logo Roti Sari" class="logo-fixed">
+    <h1>Katalog Produk</h1>
+  </div>
+  
+  
+  
+  
+  <!-- Efek Ketik -->
   <div class="thank-you">
-    Terima kasih telah mempercayai <strong>Roti Sari</strong> sebagai pilihan roti Anda.<br>
-    Semoga rotinya bisa dinikmati dan membawa kebahagiaan di setiap gigitannya! 🍞😊
-    <div class="thank-you-admin">– Admin Roti Sari</div>
+    <div id="typing-text"></div>
+    <div class="thank-you-admin" id="typing-author">– Admin Roti Sari</div>
   </div>
 
   <div class="container">
     @php
       $produk = [
-        ['Roti Manis', 'rotimanis2.jpg', 8000],
+        ['Roti Manis', 'rotimanis3.jpg', 8000],
         ['Roti Tawar', 'rotitawar.jpg', 7000],
-        ['Roti Coklat', 'roticoklat7.jpg', 9000],
+        ['Roti Coklat', 'roticoklat9.jpg', 9000],
         ['Roti Strawberry', 'rotistrawberry3.jpg', 9000],
-        ['Roti Keju', 'rotikeju21.jpg', 10000],
-        ['Roti Kornet', 'rotikornet2.jpg', 11000],
-        ['Roti Susu', 'rotisusu6.jpg', 9000],
-        ['Roti Cinnamon', 'roticinnamon14.jpg', 12000],
-        ['Roti Cream', 'roticream2.jpg', 10000],
+        ['Roti Keju', 'rotikeju22.jpg', 10000],
+        ['Roti Kornet', 'rotikornet3.jpg', 11000],
+        ['Roti Susu', 'rotisusu7.jpg', 9000],
+        ['Roti Cinnamon', 'roticinnamon15.jpg', 12000],
+        ['Roti Cream', 'roticream3.jpg', 10000],
         ['Roti Pisang', 'rotipisang2.jpg', 9500],
         ['Roti Moka', 'rotimoka.jpg', 9000],
         ['Roti Kismis', 'rotikismis.jpg', 9500],
-        ['Roti Bakar', 'rotibakar2.jpg', 8000],
+        ['Roti Bakar', 'rotibakar3.jpg', 8000],
         ['Roti Coklat Keju', 'roticoklatkeju.jpg', 11000],
-        ['Roti Pandan', 'rotipandan.jpg', 9000],
-        ['Roti Sosis', 'rotisosis2.jpg', 11000],
+        ['Roti Pandan', 'rotipandan1.jpg', 9000],
+        ['Roti Sosis', 'rotisosis3.png', 11000],
       ];
       $nomorWa = '6282113146940';
     @endphp
@@ -276,7 +358,7 @@
 
   <div class="back-btn">
     <button onclick="history.back()">
-      <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px;"></i> Kembali
+      <i class="bi bi-arrow-left"></i> Kembali ke Halaman Sebelumnya
     </button>
   </div>
 
@@ -312,6 +394,44 @@
     </div>
   </footer>
 
+  <!-- Efek Ketik Script -->
+  <script>
+    const teks = `Terima kasih telah mempercayai Roti Sari sebagai pilihan roti Anda. Semoga rotinya bisa dinikmati dan membawa kebahagiaan di setiap gigitannya! 🍞😊`;
+    const typingTarget = document.getElementById("typing-text");
+    const author = document.getElementById("typing-author");
+  
+    let i = 0;
+    let isDeleting = false;
+  
+    function ketikUlang() {
+      if (!isDeleting) {
+        typingTarget.innerHTML = teks.substring(0, i + 1);
+        i++;
+  
+        if (i === teks.length) {
+          author.style.display = "block";
+          setTimeout(() => {
+            isDeleting = true;
+            setTimeout(ketikUlang, 100);
+          }, 3000); // Tunggu 3 detik sebelum mulai menghapus
+          return;
+        }
+      } else {
+        typingTarget.innerHTML = teks.substring(0, i - 1);
+        i--;
+  
+        if (i === 0) {
+          isDeleting = false;
+          author.style.display = "none";
+        }
+      }
+  
+      setTimeout(ketikUlang, isDeleting ? 25 : 50); // lebih cepat saat menghapus
+    }
+  
+    window.onload = ketikUlang;
+  </script>
+  
+
 </body>
 </html>
-    
