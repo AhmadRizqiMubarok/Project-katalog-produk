@@ -14,6 +14,10 @@
             width: 100%; 
             object-fit: contain; 
           }
+          .carousel-item img {
+    transition: opacity 1s ease-in-out;
+}
+
     </style>
 </head>
 <body>
@@ -163,15 +167,39 @@
             </div>
         </form>
 
-        <div class="text-center my-4">
-        <img src="profil2.webp" alt="Aneka Roti" 
-            style="
-                max-height: 400px; /* Pertahankan tinggi maksimum yang Anda inginkan */
-                width: 100%;       /* Pastikan lebar gambar mengisi 100% dari container */
-                object-fit: cover; /* **PERUBAHAN PENTING: Mengisi seluruh area, mungkin memotong bagian gambar** */
-            " 
-            class="img-fluid rounded shadow">
+        {{-- Carousel Gambar Promo dengan efek transisi halus --}}
+<div id="carouselGambarPromo" class="carousel slide mt-5 mb-4 carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner rounded shadow">
+        <div class="carousel-item active">
+            <img src="{{ asset('images/gambar5.jpeg') }}" class="d-block w-100" style="max-height: 400px; object-fit: cover;" alt="Gambar 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/gambar2.jpg') }}" class="d-block w-100" style="max-height: 400px; object-fit: cover;" alt="Gambar 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/gambar9.jpg') }}" class="d-block w-100" style="max-height: 400px; object-fit: cover;" alt="Gambar 3">
+        </div>
     </div>
+
+    {{-- Tombol navigasi --}}
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselGambarPromo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        <span class="visually-hidden">Sebelumnya</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselGambarPromo" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        <span class="visually-hidden">Selanjutnya</span>
+    </button>
+
+    {{-- Indikator titik --}}
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselGambarPromo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselGambarPromo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselGambarPromo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+</div>
+
+
 
     </div>
 
